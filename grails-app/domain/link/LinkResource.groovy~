@@ -1,0 +1,7 @@
+package link
+
+class LinkResource extends Resource{
+
+    static constraints = {
+    }
+}

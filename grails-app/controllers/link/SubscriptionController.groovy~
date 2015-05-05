@@ -1,0 +1,6 @@
+package link
+
+class SubscriptionController {
+
+    def index() { }
+}

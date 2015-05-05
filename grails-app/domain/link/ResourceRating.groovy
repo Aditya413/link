@@ -1,0 +1,8 @@
+package link
+
+class ResourceRating {
+Integer score;
+
+static constraints = {
+    }
+}

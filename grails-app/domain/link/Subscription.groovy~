@@ -1,0 +1,11 @@
+
+package link
+
+class Subscription {
+
+Date dateCreated
+
+
+    static constraints = {
+    }
+}

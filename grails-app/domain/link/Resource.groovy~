@@ -1,0 +1,16 @@
+package link
+
+class Resource {
+
+String Summary
+String Title
+User createdBy
+Date dateCreated
+Date lastUpdated
+static belongsTo[topic:Topic]
+static hasMany=[resourcerating:ResourceRating,readingitem:ReadingItem]
+
+    static constraints = {
+	Title(size: 1..1024,blank:false);
+    }
+}
