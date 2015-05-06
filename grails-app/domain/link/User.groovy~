@@ -1,13 +1,11 @@
 package link
 
 class User {
-
-String name
+String firsName
 String email
 String userName
 String password
 String confirm_password
-String firsName
 String lastName
 byte[] photo
 Boolean admin

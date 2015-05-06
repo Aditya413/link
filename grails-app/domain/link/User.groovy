@@ -1,7 +1,7 @@
 package link
 
 class User {
-String firsName
+String firstName
 String email
 String userName
 String password
@@ -13,18 +13,19 @@ Boolean active
 Date dateCreated
 Date lastUpdated
 
-static hasMany=[topic:Topic,subscription:Subscription,readingitem:ReadingItem,resourcerating:ResourceRating,resource:Resource]
+static hasMany=[topics:Topic,subscriptions:Subscription,readingItems:ReadingItem,resourceRatings:ResourceRating]
 
     static constraints = {
-	photo nullable:true,blank:true
+	photo nullable:true,blank:true;
 	dateCreated nullable:true,blank:true;
 	email unique:true,blank:false;
 
-confirm_password( validator:{val, obj ->if(val?.NotEquals(obj.password)) 
+confirm_password( validator:{val, obj ->if(val?.equals(obj.password))
 {
- return ["password.doesn't.match",suggestion]
+ return true;
 }
-	})
+else {false}
+})
 	
     }
 

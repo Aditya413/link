@@ -2,15 +2,16 @@ package link
 
 class Resource {
 
-String Summary
-String Title
-User createdBy
-Date dateCreated
-Date lastUpdated
-static belongsTo=[topic:Topic]
-static hasMany=[resourcerating:ResourceRating,readingitem:ReadingItem]
-
+    String summary
+    String title
+    Date dateCreated
+    Date lastUpdated
+    static belongsTo = [topics: Topic]
+    static hasMany = [resourceRatings: ResourceRating, readingItems: ReadingItem]
+    static mapping = {
+        tablePerHierarchy(false)
+    }
     static constraints = {
-	Title(size: 1..1024,blank:false);
+        title(size: 1..1024, blank: false);
     }
 }

@@ -13,17 +13,25 @@ class BootStrap {
 	void createUser(){
 	
 User user = new User			(firstName:"Aditya",email:"adityabhatnagar413@gmail.com",username:"aditya413",password:"aditya413",confirm_password:"aditya413",lastName:"Bhatnagar");
-saveObject(user);
+user.save(failOnError:true)
 user = new User
 (firstName:"gaurav",email:"gauravsharma@intelligrape.com",username:"gauravsh",password:"gauravs",confirm_password:"gauravs",lastName:"Sharma");
-saveObject(user);
+user.save(failOnError:true)
 }
 
 
-	void createTopics()
-{
-	Topic topic = new Topic()
-}
+void createTopic()
+	{
+		List users = User.list();
+		users.each{u->
+		5.times{
+		Topic t = new Topic(name:"Grails1",visiblity:"Public",dateCreated:null,lastUpdate:null)
+		u.addToTopics(t);
+		u.addToSubscriptions(new Subscription(t:t,serioursness:"veryserious"));
+		u.save(failOnError:true);
+			}
+			}	
+	}
 
 void createResource()
 {
@@ -45,4 +53,7 @@ void createResource()
 		ReadingItem readingitem= ReadingItem()
 	}
 
+
+
 }
+
