@@ -6,6 +6,7 @@ class Resource {
     String title
     Date dateCreated
     Date lastUpdated
+    User createdBy
     static belongsTo = [topics: Topic]
     static hasMany = [resourceRatings: ResourceRating, readingItems: ReadingItem]
     static mapping = {
