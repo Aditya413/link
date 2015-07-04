@@ -3,23 +3,31 @@ package link
 import javax.swing.text.View
 
 class LoginController {
-
+def myService
     def index() {
-        render view:"Login"
-        //redirect( controller: "/LinkResource", action:"index")
+
+        List<Resource> recentResources = myService.recentResources();
+
+        List<ResourceRating> topPosts = myService.topPosts();
+
+        render view:"Login",model: [recentResources:recentResources, topPosts: topPosts]
+
 
     }
     def login(){
-     String u= params.email
+        String u= params.email
         String p= params.password;
         User u1=User.findByEmail(u);
         if (u1.password==p)
         {
-            render view: "welcome"
+            flash.message = "Welcome ${u1}"
+            redirect(controller: "Home", action: "dashboard");
         }
         else
         {
-            render("wrong credintials")
+            println("Incorrect User :: going to redirect .... ")
+            flash.message = "Please Enter the Correct Credentials"
+            redirect(controller: "login", action: "index");
         }
 
     }
@@ -46,4 +54,4 @@ class LoginController {
             render "password change successfully";
         }
     }
-    }
+}

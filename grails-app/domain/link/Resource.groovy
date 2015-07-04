@@ -15,4 +15,6 @@ class Resource {
     static constraints = {
         title(size: 1..1024, blank: false);
     }
+
+
 }
