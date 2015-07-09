@@ -16,7 +16,7 @@ class BootStrap {
 
         User user = new User(firstName: "Aditya", email: "adityabhatnagar413@gmail.com", userName: "aditya413", password: "aditya413", confirm_password: "aditya413", lastName: "Bhatnagar", admin: true, active: true);
         user.save(failOnError: true)
-        User user1 = new User(firstName: "gaurav", email: "gauravsharma@intelligrape.com", userName: "gauravsh", password: "gauravs", confirm_password: "gauravs", lastName: "Sharma", admin: true, active: true);
+        User user1 = new User(firstName: "gaurav", email: "gauravsharma@intelligrape.com", userName: "gauravsh", password: "gauravs", confirm_password: "gauravs", lastName: "Sharma", admin: false, active: true);
         user1.save(failOnError: true, flush: true)
 
     }

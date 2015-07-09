@@ -8,7 +8,7 @@ def myService
 
         List<Resource> recentResources = myService.recentResources();
 
-        List<ResourceRating> topPosts = myService.topPosts();
+        List<Resource> topPosts = myService.topPosts();
 
         render view:"Login",model: [recentResources:recentResources, topPosts: topPosts]
 
@@ -20,12 +20,14 @@ def myService
         User u1=User.findByEmail(u);
         if (u1.password==p)
         {
-            flash.message = "Welcome ${u1}"
+            session["u1"] = u1
+            session["u1_id"] = u1.id;
+            flash.message = "welcome${u1}"
             redirect(controller: "Home", action: "dashboard");
         }
         else
         {
-            println("Incorrect User :: going to redirect .... ")
+            println("Incorrect User going to redirect .... ")
             flash.message = "Please Enter the Correct Credentials"
             redirect(controller: "login", action: "index");
         }

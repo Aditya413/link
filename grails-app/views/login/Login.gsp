@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page import="link.User; link.Topic; link.Resource;link.Subscription;" %>
 <html lang="en-IN">
 <head>
     <meta charset="utf-8">
@@ -49,76 +50,90 @@
     </style>
 </head>
 <body>
-<div id="login-form">
+<div class="container">
+    <div class=row>
+        <div class="col-md-6">
+            <div id="login-form">
 
-    <input type="radio" checked id="login" name="switch" class="hide">
-    <input type="radio" id="signup" name="switch" class="hide">
+                <input type="radio" checked id="login" name="switch" class="hide">
+                <input type="radio" id="signup" name="switch" class="hide">
 
-    <div>
-        <ul class="form-header">
-            <li><label for="login"><i class="fa fa-lock"></i> LOGIN</label></li>
-            <li><label for="signup"><i class="fa fa-credit-card"></i> REGISTER</label></li>
-        </ul>
-    </div>
-
-    <div class="section-out">
-        <section class="login-section">
-            <div class="login">
-                <g:form controller="Login" action="login" method="post">
-                    <ul class="ul-list">
-                        <li><g:textField name="email" required="" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><g:passwordField name="password" required="" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-                        <li><span class="remember"><input type="checkbox" id="check"> <label for="check">Remember Me</label></span><span class="remember">
-                            <g:link controller="login" action="forgot">Forget Password</g:link></span></li>
-                        <li><g:submitButton name="submit" value="SIGN IN" class="btn"/></li>
+                <div>
+                    <ul class="form-header">
+                        <li><label for="login"><i class="fa fa-lock"></i> LOGIN</label></li>
+                        <li><label for="signup"><i class="fa fa-credit-card"></i> REGISTER</label></li>
                     </ul>
-                </g:form>
+                </div>
+
+                <div class="section-out">
+                    <section class="login-section">
+                        <div class="login">
+                            <g:form controller="Login" action="login" method="post">
+                                <ul class="ul-list">
+                                    <li><g:textField name="email" required="" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                                    <li><g:passwordField name="password" required="" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+                                    <li><span class="remember"><input type="checkbox" id="check"> <label for="check">Remember Me</label></span><span class="remember">
+                                        <g:link controller="login" action="forgot">Forget Password</g:link></span></li>
+                                    <li><g:submitButton name="submit" value="SIGN IN" class="btn"/></li>
+                                </ul>
+                            </g:form>
+                        </div>
+
+                        <div class="social-login">Or sign in with &nbsp;
+                            <a href="" class="fb"><i class="fa fa-facebook"></i></a>
+                            <a href="" class="tw"><i class="fa fa-twitter"></i></a>
+                            <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
+                            <a href="" class="in"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </section>
+
+                    <section class="signup-section">
+                        <div class="login">
+                            <g:uploadForm controller="Login" action="save" method="post">
+                                <ul class="ul-list">
+                                    <li><g:textField  name="firstName" required="" placeholder="First name" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                                    <li><g:textField name="lastName" required="" placeholder="Last name" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                                    <li><g:textField name="email" required="" placeholder="email" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                                    <li><g:textField name="userName" required="" placeholder="Username" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                                    <li><g:passwordField name="password" required="" placeholder="Password" size="30"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+                                    <li><g:passwordField name="confirm_password" required="" placeholder="ConfirmPassword" size="30"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+                                    <li><input type="file"/></li>
+                                    <li><g:submitButton name="submit" value="SIGN UP" class="btn"/></li>
+                                </ul>
+                            </g:uploadForm>
+                        </div>
+
+                        <div class="social-login">Or sign up with &nbsp;
+                            <a href="" class="fb"><i class="fa fa-facebook"></i></a>
+                            <a href="" class="tw"><i class="fa fa-twitter"></i></a>
+                            <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
+                            <a href="" class="in"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </section>
+                </div>
+
+
+
             </div>
 
-            <div class="social-login">Or sign in with &nbsp;
-                <a href="" class="fb"><i class="fa fa-facebook"></i></a>
-                <a href="" class="tw"><i class="fa fa-twitter"></i></a>
-                <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
-                <a href="" class="in"><i class="fa fa-linkedin"></i></a>
-            </div>
-        </section>
-
-        <section class="signup-section">
-            <div class="login">
-                <g:uploadForm controller="Login" action="save" method="post">
-                    <ul class="ul-list">
-                        <li><g:textField  name="firstName" required="" placeholder="First name" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><g:textField name="lastName" required="" placeholder="Last name" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><g:textField name="email" required="" placeholder="email" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><g:textField name="userName" required="" placeholder="Username" size="30"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><g:passwordField name="password" required="" placeholder="Password" size="30"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-                        <li><g:passwordField name="confirm_password" required="" placeholder="ConfirmPassword" size="30"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-                        <li><input type="file"/></li>
-                        <li><g:submitButton name="submit" value="SIGN UP" class="btn"/></li>
-                    </ul>
-                </g:uploadForm>
-            </div>
-
-            <div class="social-login">Or sign up with &nbsp;
-                <a href="" class="fb"><i class="fa fa-facebook"></i></a>
-                <a href="" class="tw"><i class="fa fa-twitter"></i></a>
-                <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
-                <a href="" class="in"><i class="fa fa-linkedin"></i></a>
-            </div>
-        </section>
-    </div>
-
-
-
-    <div>
-            <table>
-            <g:each in="${recentResources}" var="recentresource">
-                <tr>resource ${recentresource} </tr>
-            </g:each>
-
-            </table>
         </div>
-</div>
+        <div class="col-md-6">
+            <div>
+                <table>
+                    <g:each in ="${recentResources}" var="recentresource">
+                        <tr>
+                            <td>resource ${recentresource.id}</td>
+                        </tr>
+                    </g:each>
 
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
+
+

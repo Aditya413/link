@@ -11,5 +11,12 @@ static hasMany=[subscriptions:Subscription,resources:Resource]
 
     static constraints = {
 	lastUpdated nullable:true,blank:true;
+
     }
+
+    String toString() {
+        return name;
+    }
+
+
 }

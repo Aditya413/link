@@ -19,7 +19,7 @@ static hasMany=[topics:Topic,subscriptions:Subscription,readingItems:ReadingItem
    static constraints = {
        password blank: false;
        confirm_password bindable:true, blank:false;
-        photo nullable:true;
+        photo nullable:true,blank: true;
         //active nullable: true,blank :true;
         //admin nullable: true, blank: true;
         dateCreated nullable:true,blank:true;
