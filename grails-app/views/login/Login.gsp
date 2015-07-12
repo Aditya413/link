@@ -112,27 +112,34 @@
                     </section>
                 </div>
 
-
-
             </div>
 
         </div>
-        <div class="col-md-6">
-            <div>
-                <table>
-                    <g:each in ="${recentResources}" var="recentresource">
-                        <tr>
-                            <td>resource ${recentresource.id}</td>
-                        </tr>
-                    </g:each>
-
-                </table>
-            </div>
-
-        </div>
-
     </div>
 </div>
+<div class="row">
+<div class="col-md-6">
+    <div>
+        <g:each in ="${recentResources}" var="recentresource">
+            <g:render template="post" model="[post:recentresource]"/>
+            </g:each>
+
+    </div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <div>
+        <g:each in="${topPosts}" var="recentresource">
+            <g:render template="post" model="[post:recentresource]"/>
+        </g:each>
+    </div>
+
+</div>
+</div>
+
 </body>
 </html>
 

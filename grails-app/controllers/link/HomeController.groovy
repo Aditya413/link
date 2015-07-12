@@ -27,22 +27,23 @@ class HomeController {
 
 
         List<Topic> trendingTopics = a.collect { it.first() }
-        return trendingTopics;
 
         //inbox
         params.max = params.max ?: 5
-        List<Resource> inboxL = ReadingItem.createCriteria().list(params) {
+        List<Resource> inboxlist = ReadingItem.createCriteria().list(params) {
             projections {
                 property 'resources'
             }
             eq('users', u1)
-            eq('Isread', false)
+            eq('isRead', false)
 
-            order('lastUpdated','desc')
+            'resources' {
+                order('lastUpdated', 'desc')
+            }
 
             }
 
-            render view: "dashboard", model: [u1: u1, userSub: userSub, userTopic: userTopic, userTop5: userTop5, trendingTopics: trendingTopics, inboxL: inboxL]
+            render view: "dashboard", model: [u1: u1, userSub: userSub, userTopic: userTopic, userTop5: userTop5, trendingTopics: trendingTopics,inboxlist:inboxlist]
 
         }
 

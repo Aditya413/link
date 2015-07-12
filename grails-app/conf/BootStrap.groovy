@@ -76,8 +76,8 @@ class BootStrap {
         Random ran = new Random()
         u.eachWithIndex { us, index ->
             3.times {
-                us.addToReadingItems(new ReadingItem(resources: r.get(ran.nextInt(10)), Isread: true)).save(flush: true, failOnError: true)
-                us.addToReadingItems(new ReadingItem(resources: r.get(ran.nextInt(10)), Isread: true)).save(flush: true, failOnError: true)
+                us.addToReadingItems(new ReadingItem(resources: r.get(ran.nextInt(10)), isRead:true)).save(flush: true, failOnError: true)
+                us.addToReadingItems(new ReadingItem(resources: r.get(ran.nextInt(10)), isRead: false)).save(flush: true, failOnError: true)
             }
 
 
